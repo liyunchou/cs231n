@@ -31,9 +31,9 @@ def load_CIFAR10(ROOT):
   for b in range(1,6):
     f = os.path.join(ROOT, 'data_batch_%d' % (b, ))
     X, Y = load_CIFAR_batch(f)
-    xs.append(X)
+    xs.append(X) #xs is list so that  append function can be used
     ys.append(Y)    
-  Xtr = np.concatenate(xs)
+  Xtr = np.concatenate(xs) #concatenate is used to convert list to ndarry in a faster way than np.array(list)
   Ytr = np.concatenate(ys)
   del X, Y
   Xte, Yte = load_CIFAR_batch(os.path.join(ROOT, 'test_batch'))
